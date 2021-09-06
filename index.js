@@ -36,7 +36,7 @@ console.table(fifteen);
 // 2. Give us an array of the inventors first and last names
 
 const names = inventors.map(item => `${item.first} ${item.last}`);
-console.table(names);
+console.log(names);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
@@ -58,16 +58,24 @@ console.table(sortLived);
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-const category = document.querySelector('.mw-category');
+/* const category = document.querySelector('.mw-category');
 const links = category.querySelectorAll('a');
 const arrayLinks = [...links];
 const deBoulevards = arrayLinks
         .map(item => item.textContent)
-        .filter(streetName => streetName.includes('de'));
+        .filter(streetName => streetName.includes('de')); */
 
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+
+const alpha = people.sort((lastOne, nextOne) => {
+  const [aLast, aFirst] = lastOne.split(', ');
+  const [bLast, bFirst] = nextOne.split(', ');
+  return aLast > bLast ? 1 : -1;
+});
+
+console.table(alpha);
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
